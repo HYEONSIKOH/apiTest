@@ -39,3 +39,5 @@ out/
 ### yml & properties ###
 *.yml
 *.properties
+
+k6.js
