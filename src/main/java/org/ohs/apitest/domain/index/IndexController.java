@@ -1,4 +1,4 @@
-package org.ohs.apitest.index;
+package org.ohs.apitest.domain.index;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

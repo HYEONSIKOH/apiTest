@@ -1,6 +1,6 @@
-package org.ohs.apitest.index.repository;
+package org.ohs.apitest.domain.index.repository;
 
-import org.ohs.apitest.index.entity.User;
+import org.ohs.apitest.domain.index.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

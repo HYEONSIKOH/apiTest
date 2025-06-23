@@ -1,10 +1,8 @@
-package org.ohs.apitest.index;
+package org.ohs.apitest.domain.index;
 
 import lombok.*;
-import org.ohs.apitest.index.entity.User;
-import org.ohs.apitest.index.entity.UserIndexVer;
-import org.ohs.apitest.index.repository.IndexRepository;
-import org.ohs.apitest.index.repository.NoIndexRepository;
+import org.ohs.apitest.domain.index.repository.IndexRepository;
+import org.ohs.apitest.domain.index.repository.NoIndexRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
