@@ -21,4 +21,18 @@ public class PostController {
             description = "좋아요 누르는 API"
     )
     public synchronized ResponseEntity<?> likePost() { return postService.likePost(); }
+
+    @PostMapping("/like/s-lock")
+    @Operation(
+            summary = "좋아요 API",
+            description = "(공유락) 좋아요 누르는 API"
+    )
+    public ResponseEntity<?> likePostWithShareLock() { return postService.likePostWithShareLock(); }
+
+    @PostMapping("/like/x-lock")
+    @Operation(
+            summary = "좋아요 API",
+            description = "(배타락) 좋아요 누르는 API"
+    )
+    public ResponseEntity<?> likePostWithExclusiveLock() { return postService.likePostWithExclusiveLock(); }
 }
