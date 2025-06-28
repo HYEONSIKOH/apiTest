@@ -3,15 +3,20 @@ package org.ohs.apitest.domain.concurrency;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.ohs.apitest.domain.concurrency.entity.Post;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class PostService {
     private final PostRepository postRepository;
+    private final RedissonClient redissonClient;
 
     // 테이블 데이터 없으면 생성
     private void initData() {

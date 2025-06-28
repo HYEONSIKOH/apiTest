@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Tag(name = "동시성 테스트", description = "동시성 테스트를 위한, 좋아요 관리 Controller")
 public class PostController {
     private final PostService postService;
+    private final PostFacade postFacade;
 
     @PostMapping("/like")
     @Operation(
@@ -35,4 +36,11 @@ public class PostController {
             description = "(배타락) 좋아요 누르는 API"
     )
     public ResponseEntity<?> likePostWithExclusiveLock() { return postService.likePostWithExclusiveLock(); }
+
+    @PostMapping("/like/d-lock")
+    @Operation(
+            summary = "좋아요 API",
+            description = "(분산락) 좋아요 누르는 API"
+    )
+    public ResponseEntity<?> likePostWithDistributedLock() { return postFacade.likePostWithDistributedLock(); }
 }
