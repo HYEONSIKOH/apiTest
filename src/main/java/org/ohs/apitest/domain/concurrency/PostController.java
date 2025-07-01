@@ -37,10 +37,17 @@ public class PostController {
     )
     public ResponseEntity<?> likePostWithExclusiveLock() { return postService.likePostWithExclusiveLock(); }
 
-    @PostMapping("/like/d-lock")
+    @PostMapping("/like/redisson/d-lock")
     @Operation(
             summary = "좋아요 API",
-            description = "(분산락) 좋아요 누르는 API"
+            description = "(분산락 - Redisson) 좋아요 누르는 API"
     )
     public ResponseEntity<?> likePostWithDistributedLock() { return postFacade.likePostWithDistributedLock(); }
+
+//    @PostMapping("/like/lettuce/d-lock")
+//    @Operation(
+//            summary = "좋아요 API",
+//            description = "(분산락 - Lettuce) 좋아요 누르는 API"
+//    )
+//    public ResponseEntity<?> likePostWithSpinLock() { return postFacade.likePostWithSpinLock(); }
 }

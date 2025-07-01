@@ -36,7 +36,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    // Redis(Lettuce) - 공식적으로 분산락 기능을 제공하지 않음
+    // Redis(Lettuce) - 스핀락을 이용한 분산락
     // implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
     // Redisson - Redis 클라이언트 라이브러리로, 분산락 기능을 제공

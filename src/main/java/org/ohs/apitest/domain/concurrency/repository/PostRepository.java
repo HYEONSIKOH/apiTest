@@ -1,4 +1,4 @@
-package org.ohs.apitest.domain.concurrency;
+package org.ohs.apitest.domain.concurrency.repository;
 
 import jakarta.persistence.LockModeType;
 import org.ohs.apitest.domain.concurrency.entity.Post;

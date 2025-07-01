@@ -3,20 +3,17 @@ package org.ohs.apitest.domain.concurrency;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.ohs.apitest.domain.concurrency.entity.Post;
-import org.redisson.api.RLock;
+import org.ohs.apitest.domain.concurrency.repository.PostRepository;
 import org.redisson.api.RedissonClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class PostService {
     private final PostRepository postRepository;
-    private final RedissonClient redissonClient;
 
     // 테이블 데이터 없으면 생성
     private void initData() {
@@ -28,6 +25,14 @@ public class PostService {
         } catch (Exception e) {
             log.error("Error initializing data: {}", e.getMessage());
         }
+    }
+
+    // 테스트 전용 (0으로 초기화)
+    public void initLikeCount() {
+        Post post = postRepository.findById(1L)
+                .orElseThrow(() -> new NullPointerException("Post not found"));
+        post.setLikes(0);
+        postRepository.save(post);
     }
 
     // 좋아요 증가 테스트
